@@ -6,7 +6,7 @@
    the application can run on a Kubernetes Cluster!
  * Please contact me if you have any questions/improvements at: sanjum@trincoll.edu
 
- # Build/Run/UI Directions:
+ # Run/UI Directions:
   * Make sure to use my docker image sanjum1/piggybank as the image reference in the deployment.yaml file!
   * Then, have a kubernetes cluster running on your local machine and run "kubectl apply -f apply yamls" to run the
     microservice on Kubernetes!
