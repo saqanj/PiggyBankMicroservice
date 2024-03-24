@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the JAR file into the container at /app
 COPY /build/libs/PiggyBank-0.0.1-SNAPSHOT.jar .
 
-# Exposing Port 8080
+# Exposing Port 3000
 EXPOSE 8080
 
 # Specify the command to run on container start

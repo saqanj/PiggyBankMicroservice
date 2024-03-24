@@ -6,6 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collection;
+import java.util.Map;
+
 
 /**
  * Personal Piggy Bank Class.
@@ -26,6 +29,7 @@ public class PiggyBankApplication implements PiggyBank{
 	 * Private field for the money amount.
 	 */
 	private double money;
+
 
 
 	/**
@@ -83,4 +87,61 @@ public class PiggyBankApplication implements PiggyBank{
 		return "Hello.";
 	}
 
+	@GetMapping("/config")
+	public String config(){
+		Collection<Map.Entry<String, String>> configData = System.getenv().entrySet();
+
+		// Logging the configuration data
+		for (Map.Entry<String, String> entry : configData) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
+
+		// Convert the collection to JSON array manually
+		StringBuilder jsonArrayBuilder = new StringBuilder("[");
+		boolean firstEntry = true;
+		for (Map.Entry<String, String> entry : configData) {
+			if (!firstEntry) {
+				jsonArrayBuilder.append(",");
+			} else {
+				firstEntry = false;
+			}
+			jsonArrayBuilder.append("{\"key\":\"")
+					.append(entry.getKey())
+					.append("\",\"value\":\"")
+					.append(entry.getValue())
+					.append("\"}");
+		}
+		jsonArrayBuilder.append("]");
+
+		return jsonArrayBuilder.toString();
+	}
+
+	@RequestMapping(value = "/fib", method = RequestMethod.GET)
+	public String fib(@RequestParam("length") int length) {
+		if (length <= 0) {
+			return "Invalid length. Please provide a positive integer.";
+		}
+
+		// Generate Fibonacci sequence
+		int[] fibonacci = new int[length];
+		fibonacci[0] = 0;
+		if (length > 1) {
+			fibonacci[1] = 1;
+			for (int i = 2; i < length; i++) {
+				fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+			}
+		}
+
+		// Convert the array to JSON format
+		StringBuilder result = new StringBuilder("[");
+		for (int i = 0; i < length; i++) {
+			result.append(fibonacci[i]);
+			if (i < length - 1) {
+				result.append(",");
+			}
+		}
+		result.append("]");
+
+		return result.toString();
+	}
 }

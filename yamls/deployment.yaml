@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piggybank-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: piggybank
+  template:
+    metadata:
+      labels:
+        app: piggybank
+    spec:
+      containers:
+        - name: piggybank
+          image: sanjum1/piggybank
+          env:
+            - name: DATA_MICROSERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: piggybank-configmap
+                  key: DATA_MICROSERVICE
