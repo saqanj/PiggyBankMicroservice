@@ -27,7 +27,7 @@ jobs:
         run: docker build . -t piggybankmicro
 
       - name: Run the Docker Container
-        run: docker run -d -p 8123:8123 piggybankmicro
+        run: docker run -d -p 8080:8080 piggybankmicro
 
       - name: Test the RESTful service
         run: |
@@ -35,10 +35,10 @@ jobs:
           sleep 30
           
           # Send all GET and Request Mapping request to the service.
-          response_default=$(curl http://localhost:8123)
-          response_config=$(curl http://localhost:8123/config)
-          response_fib=$(curl http://localhost:8123/fib?length=18)
-          response_total=$(curl http://localhost:8123/totalMoney)
+          response_default=$(curl http://localhost:8080)
+          response_config=$(curl http://localhost:8080/config)
+          response_fib=$(curl http://localhost:8080/fib?length=18)
+          response_total=$(curl http://localhost:8080/totalMoney)
           
           
           # Check all outputs to ensure they match what is expected.

@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: piggybank-configmap
 data:
-  DATA_MICROSERVICE: PiggyBank
+  DATA_MICROSERVICE: "PiggyBank"
