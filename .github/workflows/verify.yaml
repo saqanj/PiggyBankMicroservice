@@ -49,12 +49,13 @@ jobs:
             exit 1
           fi
           
-          if [ "$response_config" == "[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"0222dada73fc"}]" ]; then
+          if [ "$response_config" == "[{key:HOME,value:/root},{key:PATH,value:/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin},{key:JAVA_VERSION,value:23-ea+10},{key:JAVA_HOME,value:/usr/local/openjdk-23},{key:LANG,value:C.UTF-8},{key:HOSTNAME,value:0222dada73fc}]" ]; then
             echo "Config test passed!"
           else
-            echo "Config test failed. Expected '[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"0222dada73fc"}]', got '$response_config'"
+            echo "Config test failed. Expected '[{key:HOME,value:/root},{key:PATH,value:/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin},{key:JAVA_VERSION,value:23-ea+10},{key:JAVA_HOME,value:/usr/local/openjdk-23},{key:LANG,value:C.UTF-8},{key:HOSTNAME,value:0222dada73fc}]'"
             exit 1
           fi
+
 
           if [ "$response_fib" == "[0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597]" ]; then
             echo "Fibonacci test passed!"
