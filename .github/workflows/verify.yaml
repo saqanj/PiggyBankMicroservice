@@ -35,10 +35,10 @@ jobs:
           sleep 30
           
           # Send all GET and Request Mapping request to the service.
+          # Note, Config Get Mapping is not tested. hostname value will not be constant.
           response_default=$(curl http://localhost:8080)
           response_fib=$(curl http://localhost:8080/fib?length=18)
           response_total=$(curl http://localhost:8080/totalMoney)
-          response_config=$(curl http://localhost:8080/config)
           
           
           # Check all outputs to ensure they match what is expected.
@@ -62,21 +62,5 @@ jobs:
             echo "Total money test passed!"
           else
             echo "Total money test failed. Expected '$expected_response', got '$response_total'"
-            exit 1
-          fi
-          
-          expected_response="You have \$0.0 in the Piggy Bank."
-          if [ "$response_total" == "$expected_response" ]; then
-            echo "Total money test passed!"
-          else
-            echo "Total money test failed. Expected '$expected_response', got '$response_total'"
-            exit 1
-          fi
-          
-          expected_response2="[{\"key\":\"HOME\",\"value\":\"/root\"}, {\"key\":\"PATH\",\"value\":\"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"}, {\"key\":\"JAVA_VERSION\",\"value\":\"23-ea+10\"}, {\"key\":\"JAVA_HOME\",\"value\":\"/usr/local/openjdk-23\"}, {\"key\":\"LANG\",\"value\":\"C.UTF-8\"}, {\"key\":\"HOSTNAME\",\"value\":\"0222dada73fc\"}]"
-          if [ "$response_config" == "$expected_response" ]; then
-            echo "Config test passed!"
-          else
-            echo "Config test failed. Expected '$expected_response2', got '$response_config'"
             exit 1
           fi
