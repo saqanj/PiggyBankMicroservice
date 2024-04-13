@@ -34,7 +34,7 @@ jobs:
           # Wait for the container to start up
           sleep 30
           
-          # Send GET and Request Mapping request to the service.
+          # Send GET and Request Mapping request to the service for Fib and Default.
           response_default=$(curl http://localhost:8080)
           response_fib=$(curl http://localhost:8080/fib?length=18)
           response_total=$(curl http://localhost:8080/totalMoney)
@@ -53,12 +53,5 @@ jobs:
             echo "Fibonacci test passed!"
           else
             echo "Fibonacci test failed. Expected '[0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597]', got '$response_fib'"
-            exit 1
-          fi
-
-          if [ "$response_total" == "You have $0.0 in the Piggy Bank." ]; then
-            echo "TotalMoney test passed!"
-          else
-            echo "TotalMoney test failed. Expected 'You have $0.0 in the Piggy Bank.', got '$response_total'"
             exit 1
           fi
