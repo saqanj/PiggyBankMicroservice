@@ -1,0 +1,62 @@
+name: Build and Test RESTful PiggyBank Microservice
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the Docker Image
+        run: docker build . -t PiggyBankMicroservice
+
+      - name: Run the Docker Container
+        run: docker run -d -p 8123:8123 PiggyBankMicroservice
+
+      - name: Test the RESTful service
+        run: |
+          # Wait for the container to start up
+          sleep 5
+          
+          # Send all GET and Request Mapping request to the service.
+          response_default=$(curl http://localhost:8123)
+          response_config=$(curl http://localhost:8123/config)
+          response_fib=$(curl http://localhost:8123/fib?length=18)
+          response_total=$(curl http://localhost:8123/totalMoney)
+          
+          
+          # Check all outputs to ensure they match what is expected.
+          if [ "$response_default" == "Hello." ]; then
+            echo "Default Test passed!"
+          else
+            echo "Default Test failed. Expected 'Hello.', got '$response_default'"
+            exit 1
+          fi
+          
+          if [ "$response_config" == "[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"c2e41c71a4f1"}]" ]; then
+            echo "Config test passed!"
+          else
+            echo "Config test failed. Expected '[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"c2e41c71a4f1"}]', got '$response_config'"
+            exit 1
+          fi
+
+          if [ "$response_fib" == "[0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597]" ]; then
+            echo "Fibonacci test passed!"
+          else
+            echo "Fibonacci test failed. Expected '[0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597]', got '$response_fib'"
+            exit 1
+          fi
+
+          if [ "$response_total" == "You have: $0.0 in the Piggy Bank." ]; then
+            echo "TotalMoney test passed!"
+          else
+            echo "TotalMoney test failed. Expected 'You have: $0.0 in the Piggy Bank.', got '$response_total'"
+            exit 1
+          fi

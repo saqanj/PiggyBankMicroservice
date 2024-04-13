@@ -79,7 +79,7 @@ public class PiggyBankApplication implements PiggyBank{
 	@GetMapping("/totalMoney")
 	@Override
 	public String totalMoney() {
-		return "You have: " + money + "$" + " in the Piggy Bank.";
+		return "You have: $" + money + " in the Piggy Bank.";
 	}
 
 	@GetMapping("/")
