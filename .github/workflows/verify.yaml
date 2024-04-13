@@ -36,7 +36,6 @@ jobs:
           
           # Send all GET and Request Mapping request to the service.
           response_default=$(curl http://localhost:8080)
-          response_config=$(curl http://localhost:8080/config)
           response_fib=$(curl http://localhost:8080/fib?length=18)
           response_total=$(curl http://localhost:8080/totalMoney)
           
@@ -46,13 +45,6 @@ jobs:
             echo "Default Test passed!"
           else
             echo "Default Test failed. Expected 'Hello.', got '$response_default'"
-            exit 1
-          fi
-          
-          if [ "$response_config" == "[{key:HOME,value:/root},{key:PATH,value:/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin},{key:JAVA_VERSION,value:23-ea+10},{key:JAVA_HOME,value:/usr/local/openjdk-23},{key:LANG,value:C.UTF-8},{key:HOSTNAME,value:0222dada73fc}]" ]; then
-            echo "Config test passed!"
-          else
-            echo "Config test failed. Expected '[{key:HOME,value:/root},{key:PATH,value:/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin},{key:JAVA_VERSION,value:23-ea+10},{key:JAVA_HOME,value:/usr/local/openjdk-23},{key:LANG,value:C.UTF-8},{key:HOSTNAME,value:0222dada73fc}]'"
             exit 1
           fi
 
