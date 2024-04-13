@@ -5,7 +5,7 @@ FROM openjdk:23-slim-bullseye
 WORKDIR /app
 
 # Copy the JAR file into the container at /app
-COPY /build/libs/PiggyBank-0.0.1-SNAPSHOT.jar .
+COPY build/libs/PiggyBank-0.0.1-SNAPSHOT.jar .
 
 # Exposing Port 8080
 EXPOSE 8080

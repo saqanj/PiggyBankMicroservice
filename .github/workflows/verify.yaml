@@ -49,10 +49,10 @@ jobs:
             exit 1
           fi
           
-          if [ "$response_config" == "[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"c2e41c71a4f1"}]" ]; then
+          if [ "$response_config" == "[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"0222dada73fc"}]" ]; then
             echo "Config test passed!"
           else
-            echo "Config test failed. Expected '[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"c2e41c71a4f1"}]', got '$response_config'"
+            echo "Config test failed. Expected '[{"key":"HOME","value":"/root"},{"key":"PATH","value":"/usr/local/openjdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"},{"key":"JAVA_VERSION","value":"23-ea+10"},{"key":"JAVA_HOME","value":"/usr/local/openjdk-23"},{"key":"LANG","value":"C.UTF-8"},{"key":"HOSTNAME","value":"0222dada73fc"}]', got '$response_config'"
             exit 1
           fi
 
