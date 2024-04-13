@@ -59,6 +59,6 @@ jobs:
           if [ "$response_total" == "You have $0.0 in the Piggy Bank." ]; then
             echo "TotalMoney test passed!"
           else
-            echo "TotalMoney test failed. Expected 'You have: $0.0 in the Piggy Bank.', got '$response_total'"
+            echo "TotalMoney test failed. Expected 'You have $0.0 in the Piggy Bank.', got '$response_total'"
             exit 1
           fi
