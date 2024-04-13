@@ -77,6 +77,6 @@ jobs:
           if [ "$response_config" == "$expected_response" ]; then
             echo "Config test passed!"
           else
-            echo "Config test failed. Expected '$expected_response', got '$response_config'"
+            echo "Config test failed. Expected '$expected_response2', got '$response_config'"
             exit 1
           fi
