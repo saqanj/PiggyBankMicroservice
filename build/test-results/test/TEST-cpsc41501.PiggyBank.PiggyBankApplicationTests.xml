@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cpsc41501.PiggyBank.PiggyBankApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-13T04:04:29" hostname="10-252-186-163.student.trincoll.edu" time="1.017">
+<testsuite name="cpsc41501.PiggyBank.PiggyBankApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-13T17:59:50" hostname="10-252-186-163.student.trincoll.edu" time="0.932">
   <properties/>
-  <testcase name="contextLoads()" classname="cpsc41501.PiggyBank.PiggyBankApplicationTests" time="1.017"/>
-  <system-out><![CDATA[00:04:26.723 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [cpsc41501.PiggyBank.PiggyBankApplicationTests]: PiggyBankApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:04:26.863 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration cpsc41501.PiggyBank.PiggyBankApplication for test class cpsc41501.PiggyBank.PiggyBankApplicationTests
+  <testcase name="contextLoads()" classname="cpsc41501.PiggyBank.PiggyBankApplicationTests" time="0.932"/>
+  <system-out><![CDATA[13:59:46.983 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [cpsc41501.PiggyBank.PiggyBankApplicationTests]: PiggyBankApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:59:47.158 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration cpsc41501.PiggyBank.PiggyBankApplication for test class cpsc41501.PiggyBank.PiggyBankApplicationTests
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -13,9 +13,9 @@
 
  :: Spring Boot ::       (v3.3.0-SNAPSHOT)
 
-2024-04-13T00:04:27.339-04:00  INFO 28135 --- [    Test worker] c.PiggyBank.PiggyBankApplicationTests    : Starting PiggyBankApplicationTests using Java 20.0.2 with PID 28135 (started by saqlainanjum in /Users/saqlainanjum/Documents/PiggyBankMicroservice)
-2024-04-13T00:04:27.341-04:00  INFO 28135 --- [    Test worker] c.PiggyBank.PiggyBankApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-13T00:04:29.645-04:00  INFO 28135 --- [    Test worker] c.PiggyBank.PiggyBankApplicationTests    : Started PiggyBankApplicationTests in 2.592 seconds (process running for 3.945)
+2024-04-13T13:59:47.804-04:00  INFO 1285 --- [    Test worker] c.PiggyBank.PiggyBankApplicationTests    : Starting PiggyBankApplicationTests using Java 20.0.2 with PID 1285 (started by saqlainanjum in /Users/saqlainanjum/Documents/PiggyBankMicroservice)
+2024-04-13T13:59:47.806-04:00  INFO 1285 --- [    Test worker] c.PiggyBank.PiggyBankApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-13T13:59:50.700-04:00  INFO 1285 --- [    Test worker] c.PiggyBank.PiggyBankApplicationTests    : Started PiggyBankApplicationTests in 3.206 seconds (process running for 4.906)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
