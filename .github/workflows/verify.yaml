@@ -23,7 +23,7 @@ jobs:
       - name: Test the RESTful service
         run: |
           # Wait for the container to start up
-          sleep 5
+          sleep 30
           
           # Send all GET and Request Mapping request to the service.
           response_default=$(curl http://localhost:8123)
