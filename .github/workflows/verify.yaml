@@ -15,10 +15,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build the Docker Image
-        run: docker build . -t PiggyBankMicroservice
+        run: docker build . -t piggybankmicro
 
       - name: Run the Docker Container
-        run: docker run -d -p 8123:8123 PiggyBankMicroservice
+        run: docker run -d -p 8123:8123 piggybankmicro
 
       - name: Test the RESTful service
         run: |
