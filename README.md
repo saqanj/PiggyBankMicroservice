@@ -1,7 +1,7 @@
 # Piggy Bank Application Overview
  * This application contains support for the four basic REST commands: GET, POST, PUT, and DELETE through the vehicle of a basic PiggyBank Application on Java using Springboot for the Web Framework, Swagger for the UI, and Gradle for building the application. A pre-made Dockerfile and several YAML files for the deployment, configmap, and service specifications are provided so the application can run on a Kubernetes Cluster! Additionally, the application provides CI/CD support through a verify.yaml file located under the .github/workflow directory for managing a github workflow which builds and tests get/request mappings after each commit. 
 
- * Please contact me if you have any questions/improvements at: sanjum@trincoll.edu
+ * Please contact me if you have any questions/improvements at: saqlainanjum13@gmail.com
 
 ## Dependencies
  * JDK 20+
